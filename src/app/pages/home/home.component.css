@@ -1,0 +1,11 @@
+.selected{
+    background-color: blueviolet;
+}
+
+.unSelected{
+    background-color:cadetblue;
+}
+
+.textoColor{
+    color: white;;
+}

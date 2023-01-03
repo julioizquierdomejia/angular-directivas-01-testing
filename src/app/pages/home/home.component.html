@@ -1,0 +1,82 @@
+<div class="container w-50 mx-auto mt-10">
+    <h1 class="text-2xl text-blue-700">Directivas Estructurales</h1>
+    <h2 class="text-xl text-blue-500">Directivas *ngIf / ngModel</h2>
+
+    <input type="text" [(ngModel)]='ciudad' class="mt-3 px-2 py-1 border">
+    <h3 *ngIf="ciudad" class="mt-8 border">Esta ingresando el nombre de <span class="text-red-600">{{ciudad}}</span></h3>
+    
+    <h2 class="text-xl text-blue-500 mt-8">Directivas *ngFor</h2>
+    <div class="mt-4">
+        <h3 class="text-orange-800 text-xl">Ciudades</h3>
+        
+        <ul *ngFor="let city of cities" class="mr-2">
+            <li class="my-2 py-1 px-2">{{city}}</li>
+        </ul>
+    </div>
+
+    
+    <h2 class="text-xl text-blue-500 mt-8">Directivas *ngIf / then / else</h2>
+    
+    <div *ngIf="mostrar; else bloque ">
+        {{mostrar}}
+    </div>
+
+    <ng-template #bloque class="block bg-orange-500">{{mostrar}}</ng-template>
+    
+    <br>
+    <button class="border bg-blue-300 px-3 py-1 rounded-l" (click)="mostrar = !mostrar">
+        boton
+    </button>
+    
+
+
+    <h2 class="text-xl text-blue-500 mt-8">Directivas *ngSwitch</h2>
+    <input type="text" #newDia class="border px-2 py-1">
+    <button (click)="dia = newDia.value" class="border bg-orange-200 rounded-l px-2 py-1 mt-8">Que dia es</button>
+    
+    <div [ngSwitch] = "dia" class="mt-2">
+        <span *ngSwitchCase="'1'" class="text-xl">Lunes</span>
+        <span *ngSwitchCase="'2'" class="text-xl">Martes</span>
+        <span *ngSwitchCase="'3'" class="text-xl">Miércoles</span>
+        <span *ngSwitchCase="'4'" class="text-xl">Jueves</span>
+        <span *ngSwitchCase="'5'" class="text-xl">Viernes</span>
+        <span *ngSwitchCase="'6'" class="text-xl">Sábado</span>
+        <span *ngSwitchCase="'7'" class="text-xl">Domingo</span>
+        <span *ngSwitchDefault="''" class="text-xl">Ingrese un Valor Válido</span>
+
+    </div>
+
+    <h1 class="text-2xl text-blue-700 mt-8">Directivas de Atributos</h1>
+    
+    <div class="bg-yellow-100 p-6">
+        <h2 class="text-xl text-blue-500 mt-2">Directivas *ngClass</h2>
+        <div class="">
+            <h3 class="text-orange-800 text-xl mt-4">Ciudades</h3>
+            <ul *ngFor="let city of cities" class="mr-2">
+                <li [ngClass]="{'selected':city === 'Barcelona', 'unSelected':city != 'Barcelona'}" class="my-2 py-2 px-2">{{city}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-blue-100 p-6 mt-6">
+        <h2 class="text-xl text-blue-500 mt-12">Directivas *ngStyle</h2>
+        <div class="">
+            <h3 class="text-orange-800 text-xl mt-4">Ciudades</h3>
+            <ul *ngFor="let city of cities" class="mr-2">
+                <li [ngStyle]="{'color':'white', 'background-color': city === 'Sokovia' ? 'blue' : 'green'}" class="my-2 py-2 px-2">{{city}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="w-80 bg-orange-100 rounded 2xl mt-8 mb-8">
+        <div class="p-6">
+            <img src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" alt="" width="80%">
+        </div>
+        
+        <div class="p-6 bg-slate-200">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et sed facilis vel inventore, ad iusto est numquam fugit esse reiciendis fugiat accusamus optio, corporis itaque, aspernatur sint incidunt? Cum, eligendi.</p>
+        </div>
+    </div>
+
+</div>
